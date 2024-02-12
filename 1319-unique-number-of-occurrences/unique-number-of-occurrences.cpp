@@ -1,15 +1,15 @@
 class Solution {
 public:
     bool uniqueOccurrences(vector<int>& arr) {
-        unordered_map<int,int> frequency;
+        unordered_map<int,int> mp;
 
         for(int num : arr)
-                frequency[num]++;
+                mp[num]++;
 
-        unordered_set<int>storage;
-        for(auto key : frequency)
-            storage.insert(key.second);
+        set<int>s;
+        for(auto [n,f] :mp)
+            s.insert(f);
 
-        return frequency.size()== storage.size();
+        return mp.size()== s.size();
     }
 };
